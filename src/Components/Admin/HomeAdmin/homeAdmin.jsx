@@ -1,9 +1,11 @@
+import './homeAdmin.css'
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from 'react-redux'
 import { logoutInitiate } from "../../../Redux/Actions/authActions"; 
 import { getUserByIdInitiate, getExcurtionsInitiate, getAllUsersInitiate } from "../../../Redux/Actions/dbActions";
-import { useHistory } from "react-router-dom";
+import { useHistory, useLocation } from "react-router-dom";
 import { Link } from "react-router-dom";
+import NavBarAdmin from '../NavBarAdmin/navBarAdmin';
 
 
 const HomeAdmin = () => {
@@ -14,6 +16,8 @@ const HomeAdmin = () => {
     const dispatch = useDispatch()
     
     const history = useHistory()
+
+    const location = useLocation()
 
     useEffect(() => {
         dispatch(getUserByIdInitiate(currentUser?.email))
@@ -31,12 +35,13 @@ const HomeAdmin = () => {
 
 
     return(
-        <div>
-            <div>homadmin</div>
-            <Link to='/excurtionCreate'>excursiones</Link>
-            <Link to='/uploadImages'>upload</Link>
-            <Link to='/imagesByExcurtion'>images</Link>
-            <button onClick={(e)=>handleAuth(e)}>Logout</button>
+        <div className='homeAdminContainer'>
+            <div className='homeAdminLogout'>
+                <button className='homeAdminTag'>Administrador</button>
+                <button className='homeAdminLogoutButton' onClick={(e)=>handleAuth(e)}>Cerrar sesión</button>
+            </div>
+            
+            <NavBarAdmin/>
             <table>
                 <thead>
                     <tr>

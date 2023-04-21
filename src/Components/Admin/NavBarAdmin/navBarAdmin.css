@@ -1,0 +1,63 @@
+.homeAdminNav{
+    display: flex;
+    flex-direction: row;
+    margin-top: 50px;
+}
+.navButtons{
+    border: 1px solid rgb(252, 245, 245);
+    background-color: rgb(252, 245, 245);
+    color: rgb(49, 49, 49);
+    width: 130px;
+    margin: 5px;
+    border-radius: 30px;
+    height: 30px;
+    cursor: pointer;
+}
+.navButtons:hover{
+    border: 1px solid #5939fa;
+    background-color: #5939fa;
+    color: rgb(252, 245, 245);
+}
+.activeNavTernary{
+    border: 1px solid #5939fa;
+    background-color: #5939fa;
+    color: rgb(252, 245, 245);
+    box-shadow: -2px 5px 5px 0px #989898b2;
+    width: 130px;
+    margin: 5px;
+    border-radius: 30px;
+    height: 30px;
+    cursor: pointer;
+}
+.homeAdminLogout{
+    position: absolute;
+    top: 1%;
+    right: 1%;
+}
+.homeAdminTag{
+    border: 1px solid #5939fa;
+    background-color:#5939fa;
+    color: #fffef4;
+    font-family: 'Lato', sans-serif;
+    border-radius: 18px;
+    width: 150px;
+    height: 30px;
+    font-size: 13px;
+    margin-right: 5px;
+}
+.homeAdminLogoutButton{
+    border: 1px solid  #777878;
+    background-color:  #777878;
+    color: rgb(252, 245, 245);
+    font-family: 'Lato', sans-serif;
+    border-radius: 18px;
+    width: 150px;
+    height: 30px;
+    font-size: 13px;
+    cursor: pointer;
+}
+.homeAdminLogoutButton:hover{
+    border: 1px solid #5939fa;
+    background-color:#5939fa;
+    color: #fffef4;
+}

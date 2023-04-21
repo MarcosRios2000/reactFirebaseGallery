@@ -1,0 +1,110 @@
+.registerContainer{
+    background-image: url('../../assets/images/p1.jpg');
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.registerContainer form{
+    width: 650px;
+    background-color: white;
+    height: 500px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.registerInputs{
+    display: flex;
+    flex-direction: column;
+}
+.registerInputs input{
+    width: 250px;
+    height: 35px;
+    border: 1px rgb(185, 183, 183)   solid;
+    border-radius: 25px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+    font-family: 'Poppins', sans-serif;
+    padding-left: 13px;
+}
+.registerTittle{
+font-size: 30px;
+font-weight: 600;
+}
+.registertext{
+    font-size: 12px;
+}
+.registerButton{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 230px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #5939fa;
+    background-color:#5939fa;
+    color: #fffef4;
+    font-family: 'Lato', sans-serif;
+    font-weight: bold;
+    height: 35px;
+    border-radius: 18px;
+    cursor: pointer;
+    margin-bottom: 5px;
+}
+.registerButton:hover{
+    background-color:#3e27af;
+    border-color: #3e27af;
+    color: #fffef4;
+}
+.registerToRegister{
+    display: flex;
+    flex-direction: row;
+    font-family: 'Lato', sans-serif;
+}
+.registerToLoginButton{
+    font-family: 'Lato', sans-serif;
+    background-color: transparent;
+    border: 1px solid transparent;
+    font-size: 14.5px;
+    margin-top: -0.9px;
+}
+.registerToLoginButton:hover{
+    color: #5939fa;
+}
+.registerBoth{
+    display: flex;
+    flex-direction: row;
+}
+.registerInputError{
+display: flex;
+flex-direction: column;
+}
+.errorRegister{
+    font-family: 'Lato', sans-serif;
+    font-size: 11px;
+    color: #bd0139;
+    margin-left: 15px;
+    margin-top: -10px;
+}
+@media (max-width: 680px) {
+    .registerContainer form{
+        width: 340px;
+        height: 650px;
+    }
+    .registerBoth{
+        flex-direction: column;
+    }
+    .registerTittle{
+         text-align: center;
+         font-size: 20px;
+    }
+    .registertext{
+        text-align: center;
+        font-size: 11px;
+        width: 290px;
+        margin-top: 5px;
+    }
+}

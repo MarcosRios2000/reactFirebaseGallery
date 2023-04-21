@@ -1,0 +1,175 @@
+.homeLogout{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    border-radius: 30px;
+    font-size: 11px;
+    border: 1px solid  #777878;
+    background-color:  #777878;
+    color: rgb(252, 245, 245);
+    letter-spacing: 1px;
+    border-radius: 30px;
+    height: 30px;
+    transition: none !important;
+    width: 150px;
+    box-shadow: 0px 3px 5px 0px #989898b2 !important;
+    font-family: 'Lato', sans-serif;
+}
+.homeLogout:hover{
+    border: 1px solid #5939fa;
+    background-color: #5939fa;
+    color: rgb(252, 245, 245);
+}
+.homeContainer{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+.homeTitle{
+    font-size: 40px;
+    font-family: 'Lato', sans-serif;
+    margin-top: 30px;
+}
+.homeBody{
+    font-size: 14px;
+    font-family: 'Lato', sans-serif;
+}
+.homeDownload{
+    background-color:#5939fa;
+    border-color: #5939fa;
+    color: #fffef4;
+    border-radius: 30px;
+    min-width: 150px; 
+    margin: 6px;
+    font-family: 'Lato', sans-serif;
+    white-space: nowrap;
+    min-height: 30px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+.homeDownload:hover{
+    background-color:#3e27af;
+    border-color: #3e27af;
+    color: #fffef4;
+}
+.homeNoImgText{
+    font-size: 30px;
+    font-family: 'Lato', sans-serif;
+}
+.photosCards {
+    -webkit-column-count: 3;
+    -moz-column-count: 3;
+    column-count: 3;
+    -webkit-column-width: 33%;
+    -moz-column-width: 33%;
+    column-width: 33%;
+    padding: 0 12px;
+  }
+  
+  .photosCards .photoCard {
+    -webkit-transition: all 350ms ease;
+    transition: all 350ms ease;
+    cursor: pointer;
+    margin-bottom: 12px;
+    position: relative; /* Add position relative to the photoCard */
+  }
+  
+  .photosCards .photoCard img {
+    width: 100%;
+  }
+  
+  .photosCards .photoCard .downloadButton {
+    position: absolute; /* Add position absolute to the downloadButton */
+    bottom: 3%;
+    left: 1%;
+    z-index: 1; /* Add z-index higher than photoCard img */
+  }
+   .photosCards .photoCard:hover{
+     filter: opacity(.8);
+   }
+   @media (max-width: 991px){
+    .photosCards{
+      -webkit-column-count: 2;
+      -moz-column-count: 2;
+      column-count: 2;
+    }
+  }
+  @media (max-width: 480px){
+    .photosCards{
+      -webkit-column-count: 1;
+      -moz-column-count: 1;
+      column-count: 1;
+      -webkit-column-width: 100%;
+   -moz-column-width: 100%;
+   column-width: 100%;
+    }
+  }
+
+  .model{
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #000000;
+    transition: opacity .4s, visibility .4s ease, transform .5s ease-in-out;
+    visibility: hidden;
+    opacity: 0;
+    transform: scale(0);
+    overflow: hidden;
+    z-index: 998;
+  }
+  .model.open{
+    visibility: visible;
+    opacity: 1;
+    transform: scale(1);
+  }
+  .model img{
+    width: auto;
+    max-width: 100%;
+    height: auto;
+    max-height: 100%;
+    display: block;
+    line-height: 0;
+    box-sizing: border-box;
+    padding: 20px 0 20px;
+    margin: 0 auto;
+  }
+.closeImgHome{
+    width: 10px !important;
+    z-index: 999;
+    position: absolute;
+    top: 1%;
+    right: 2%;
+    cursor: pointer;
+}  
+
+.downloadButton{
+    width: 20px; 
+}
+@media (max-width: 600px) {
+    .homeTitle{
+        font-size: 25px;
+        margin-top: 60px;
+    }
+    .homeBody{
+        font-size: 10px;
+        font-family: 'Lato', sans-serif;
+    }
+}
+@media (max-width: 400px) {
+    .homeTitle{
+        font-size: 20px;
+        margin-top: 60px;
+    }
+    .homeBody{
+        font-size: 8px;
+        font-family: 'Lato', sans-serif;
+    }
+}
+

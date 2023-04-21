@@ -16,10 +16,12 @@ const ExcurtionDetail = () => {
     const [ anyChanges, setAnyChanges ] = useState(false)
     const [ usersAffected, setUsersAffected ] = useState([])
 
+
     const { id } = useParams()
 
     const dispatch = useDispatch()
 
+    
     const initializeCheckbox = function(users){
         users.forEach((el) => {
             if(el?.excurtions.includes(id)){  

@@ -1,3 +1,4 @@
+import './imagesByExcurtion.css'
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from 'react-redux'
 import { useHistory } from "react-router-dom";
@@ -5,6 +6,7 @@ import { getAllImagesInitiate } from "../../../Redux/Actions/dbActions";
 import { Link } from "react-router-dom";
 import { db, storage } from "../../../Firebase/firebaseConfig";
 import * as firestoreKeys from '../../../Firebase/firestoreKeys'
+import NavBarAdmin from "../NavBarAdmin/navBarAdmin";
 
 
 const ImagesByExcurtion = () => {
@@ -44,9 +46,10 @@ const ImagesByExcurtion = () => {
         })
         setFilteredImages(filtered)
     }
-
+console.log(images, 'asd')
     return (
-        <div>
+        <div className='imagesByExcurtion'>
+            <NavBarAdmin/>
             <Link to='/homeAdmin'>go back</Link>
             <div>
                 {excurtions?.map((el) => {
@@ -61,7 +64,7 @@ const ImagesByExcurtion = () => {
                 {
                 filteredImages?.length === 0 ?
                 
-                images?.map((el) => {
+                images?.filter(e => e?.excurtion !== undefined)?.map((el) => {
                     return(
                         <div key={el?.name}>
                             <img alt="" src={el?.url}/>

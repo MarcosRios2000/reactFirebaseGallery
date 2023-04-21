@@ -1,7 +1,9 @@
+import './login.css'
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, Link } from "react-router-dom";
 import { loginInitiate, googleSignInInitiate } from "../../Redux/Actions/authActions";
+
 
 
 
@@ -37,6 +39,25 @@ export default function Login(){
             [e.target.name]: e.target.value
         })
     }
+    const validateInput = function (e) {
+        let { name } = e.target;
+
+        if (name === "email") {
+          if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e.target.value)) {
+            setError({ ...error, [name]: "Mail incorrecto" });
+          } else {
+            setError({ ...error, [name]: "" });
+          }
+        }
+        if (name === "password") {
+          if (e.target.value.length < 6) {
+            setError({ ...error, [name]: "Minimo seis caracteres" });
+          } else {
+            setError({ ...error, [name]: "" });
+          }
+        }
+       
+      };
 
     const clearForm = function () {
         setInput(initialState);
@@ -55,40 +76,56 @@ export default function Login(){
         clearForm()
     }
 
+    const redirectRegister = function(e){
+        history.push('/register')
+    }
+    console.log(error)
     return (
-        <div>
-            <div>
-                Login
-            </div>
+        <div className='loginContainer'>
             <form onSubmit={handleSubmit}> 
-                <div>
-                {/* onClick={(e) => {handleGoogleSignIn}} */}
-                    <button type="button" onClick={handleGoogleSignIn} >
-                        Sign In Google
-                    </button>
+                <div className='loginFormDiv'>
+                <img className="loginLogo" src="/images/Logo.png" alt="logoBlancologin"/>
+                <div className="loginWelcome">Te damos la bienvenida a tu QBOOK</div>
+                    <div className='loginInputs'>
+                        <input 
+                        type='email'
+                        name='email'
+                        value={input.email}
+                        onChange={(e)=>{handleInputChange(e)
+                            validateInput(e)
+                        }}
+                        placeholder='Email'
+                        />
+                        <div className="errorLogin">{error?.email}</div>
+                        <input 
+                        type='password'
+                        name='password'
+                        value={input.password}
+                        onChange={(e)=>{handleInputChange(e)
+                            validateInput(e)
+                        }}
+                        placeholder='Contraseña'
+                        />
+                        <div className="errorLogin">{error?.password}</div>
+                    </div>
+                     <div className='buttonsLogin'>
+                    <button
+                    className='loginButton'
+                    type='submit'
+                    >Iniciar sesión</button>
+                    <div>o</div>
+                        <button className='signInGoogleButton' type="button" onClick={handleGoogleSignIn} >
+                            <img className='googleImageLogin' src='/images/google.png' alt=''/>
+                            Continuar con Google
+                        </button> 
+                           <div className='loginToRegister'>
+                            <div>Nuevo aqui?</div>
+                        <button className='loginToRegisterButton' onClick={(e) => redirectRegister(e)}>
+                            Registrate
+                        </button>
+                            </div>                    
+                    </div>
                 </div>
-                <div>
-                    <input 
-                    type='email'
-                    name='email'
-                    value={input.email}
-                    onChange={(e)=>handleInputChange(e)}
-                    />
-                    <input 
-                    type='password'
-                    name='password'
-                    value={input.password}
-                    onChange={(e)=>handleInputChange(e)}
-                    />
-                </div>
-                <button
-                type='submit'
-                >Sign in</button>
-                <Link to='/register'>
-                    <button>
-                        Sign up
-                    </button>
-                </Link>
             </form>
         </div>
     )

@@ -1,6 +1,7 @@
 .landingPageContainer{
     height: 100vh;
 }
+
 .cb-slideshow,
 .cb-slideshow:after { 
     position: fixed;
@@ -67,3 +68,81 @@
   .no-cssanimations .cb-slideshow li span{
       opacity: 1;
   }
+
+.landingButtonLink{
+    text-decoration: none;
+    color: #fffef4
+}
+.landingButton{
+    border-color: #fffef4;
+    border: 1.5px solid #fffef4;
+    color: #fffef4;
+    border-radius: 30px;
+    width: 170px;
+    background-color: transparent;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    height: 32px;
+    margin: 5px;
+    font: bold;
+    
+}
+.landingButton:hover{
+    background-color:#dfff68;
+    color: #5939fa;
+}
+.LandingFirstImages{
+    display: flex;
+    flex-direction: column;
+}
+.landingBodyContainer{
+    display: flex;
+    flex-direction: column;
+    margin-left: 50px;
+    width: 510px;
+
+}
+.landingBodyContainer img{
+    -webkit-user-drag: none;
+    user-drag: none;
+}
+.landingButtons{
+   margin-top: 30px;
+}
+.landingBodyLogo{
+    width: 130px; 
+    margin: 5px; 
+    margin-top: 50px;
+}
+.landingBodyTitle{
+    width: 500px;
+    margin: 5px;   
+}
+.landingBodyText{
+    width: 490px;
+    margin: 5px;    
+}
+@media (max-width: 600px) {
+    .landingBodyContainer{
+      align-items: center;
+    }
+    .landingBodyLogo{
+        width: 100px;
+    }
+    .landingBodyTitle{
+        width: 300px;
+    }
+    .landingBodyText{
+        width: 245px;
+    }
+    .landingBodyContainer{
+        display: flex;
+        flex-direction: column;
+        margin-left: 0px;
+        width: 360px;
+        margin-top: 100px;
+    }
+    .landingButtons button{
+        width: 150px;
+    }
+}

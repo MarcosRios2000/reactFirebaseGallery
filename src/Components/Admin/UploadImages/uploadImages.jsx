@@ -1,8 +1,10 @@
+import './uploadImages.css'
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from 'react-redux'
 import { Link } from "react-router-dom";
 import { db, storage, firebase } from "../../../Firebase/firebaseConfig";
 import * as firestoreKeys from '../../../Firebase/firestoreKeys'
+import NavBarAdmin from "../NavBarAdmin/navBarAdmin";
 
 const UploadImages = () => {
     const excurtionsArray = useSelector((state) => state?.db?.arrayExcurtions)
@@ -80,9 +82,10 @@ const UploadImages = () => {
     });
   };
 
-console.log(fileList, fileList.length)
+
     return(
-        <div>
+        <div className='uploadImgContainer'>
+          <NavBarAdmin/>
             <div>upload</div>
             <form onSubmit={handleSubmit}>
                 <input 

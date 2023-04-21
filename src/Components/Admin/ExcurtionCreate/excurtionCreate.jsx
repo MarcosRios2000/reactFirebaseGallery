@@ -1,3 +1,4 @@
+import './excurtionCreate.css'
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from 'react-redux'
 import { useHistory } from "react-router-dom";
@@ -5,6 +6,7 @@ import * as firestoreKeys from '../../../Firebase/firestoreKeys'
 import { db } from "../../../Firebase/firebaseConfig";
 import { Link } from "react-router-dom";
 import { getUserByIdInitiate, getExcurtionsInitiate } from "../../../Redux/Actions/dbActions";
+import NavBarAdmin from "../NavBarAdmin/navBarAdmin";
 
 const initialState = {
     excurtionName: '',
@@ -50,8 +52,8 @@ const ExcurtionCreate = () => {
 
 
     return (
-        <div>
-            
+        <div className='excurtionCreateContainer'>
+            <NavBarAdmin/>
             <Link to='/homeAdmin'>go back</Link>
 
             <div>{
