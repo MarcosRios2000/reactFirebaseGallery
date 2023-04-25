@@ -1,7 +1,4 @@
 {
-  "storage": {
-    "rules": "cors.json"
-  },
   "hosting": {
     "public": "build",
     "ignore": [
