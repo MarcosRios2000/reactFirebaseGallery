@@ -119,9 +119,8 @@ const Home = () => {
             <img draggable="false" onClick={e => closeModel(e)} className='closeImgHome' src='/images/close.png'/>
           </div>
             <div className='homeTitle'>Bienvenido/a {user?.name} a tu QBook.</div>
-            <div className='homeBody'>Descargá las fotos que mas te gusten o utilizá el botón DESCARGAR TODO.</div>
+            <div className='homeBody'>Descargá las fotos que mas te gusten!</div>
             <div className='homeBody'>Recordá que tu book estará disponible durante 15 días desde que iniciaste sesión</div>
-            <button className='homeDownload' onClick={(e)=>{downloadAll(e)}}>Descargar todo</button>
             <div>
                 { 
                 user?.excurtions?.map((el) => {
