@@ -33,6 +33,8 @@
     position: absolute;
     top: 1%;
     right: 1%;
+    display: flex;
+    flex-direction: row;
 }
 .homeAdminTag{
     border: 1px solid #5939fa;
@@ -60,4 +62,34 @@
     border: 1px solid #5939fa;
     background-color:#5939fa;
     color: #fffef4;
+}
+@media (max-width: 570px) {
+    .homeAdminLogout{
+        position: absolute;
+        right: 50%;
+        transform: translate(50%, -50%);
+        display: flex;
+        flex-direction: row;
+        top: 3%;
+    }
+    .navButtons{
+        width: 70px;
+        height: 20px;
+        font-size: 8px;
+    }
+    .activeNavTernary{
+        width: 70px;
+        height: 20px;
+        font-size: 8px;
+    }
+    .homeAdminTag{
+        width: 100px;
+        height: 25px;
+        font-size: 10px;
+    }
+    .homeAdminLogoutButton{
+        width: 100px;
+        height: 25px;
+        font-size: 10px;
+    }
 }

@@ -86,7 +86,7 @@ const Register = () => {
     return (
         <div className='registerContainer'>
             <form onSubmit={handleSubmit}> 
-                <img className="loginLogo" src="/images/Logo.png" alt="logoBlancologin"/>
+                <img draggable="false" className="loginLogo" src="/images/Logo.png" alt="logoBlancologin"/>
                 <div className='registerTittle'>Te damos la bienvenida a QBook</div>
                 <div className='registertext'>Completá los siguientes datos para ingresar y descargar tu book.</div>
                 <div className='registerInputs'>

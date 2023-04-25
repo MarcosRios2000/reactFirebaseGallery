@@ -1,3 +1,4 @@
+import './excurtionDetail.css'
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from 'react-redux'
 import { useParams, useHistory } from "react-router-dom";
@@ -5,6 +6,7 @@ import * as firestoreKeys from '../../../Firebase/firestoreKeys'
 import { db, firebase } from "../../../Firebase/firebaseConfig";
 import { Link } from "react-router-dom";
 import { getAllUsersInitiate } from "../../../Redux/Actions/dbActions";
+import NavBarAdmin from "../NavBarAdmin/navBarAdmin";
 
 
 
@@ -95,10 +97,11 @@ const ExcurtionDetail = () => {
 
 console.log(checkInput, 'check')
     return (
-        <div>
+        <div className="adminDetailContainer">
+            <NavBarAdmin/>
             <table>
                 <thead>
-                    <tr>
+                    <tr style={{backgroundColor: '#b3b3b3'}}>
                         <th> </th>
                         <th>Email</th>
                         <th>Name</th>
@@ -106,9 +109,9 @@ console.log(checkInput, 'check')
                 </thead>
                 <tbody>
                         {
-                        users?.map((el) => {
+                        users?.map((el, index) => {
                             return (
-                                <tr key={el.name}>
+                                <tr style={index % 2 === 1 ? {backgroundColor: '#b3b3b3'} : {backgroundColor: '#cdcdcd'}} key={el.name}>
                                     <td>
                                     <input
                                     type='checkbox'

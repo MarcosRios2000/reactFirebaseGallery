@@ -84,7 +84,7 @@ export default function Login(){
         <div className='loginContainer'>
             <form onSubmit={handleSubmit}> 
                 <div className='loginFormDiv'>
-                <img className="loginLogo" src="/images/Logo.png" alt="logoBlancologin"/>
+                <img draggable="false" className="loginLogo" src="/images/Logo.png" alt="logoBlancologin"/>
                 <div className="loginWelcome">Te damos la bienvenida a tu QBOOK</div>
                     <div className='loginInputs'>
                         <input 
@@ -115,7 +115,7 @@ export default function Login(){
                     >Iniciar sesión</button>
                     <div>o</div>
                         <button className='signInGoogleButton' type="button" onClick={handleGoogleSignIn} >
-                            <img className='googleImageLogin' src='/images/google.png' alt=''/>
+                            <img draggable="false" className='googleImageLogin' src='/images/google.png' alt=''/>
                             Continuar con Google
                         </button> 
                            <div className='loginToRegister'>

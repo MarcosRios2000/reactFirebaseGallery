@@ -121,7 +121,10 @@ export const getAllImagesInitiate = () => {
             let docs = []
             querySnapshot.forEach((doc) => {
                 let data = doc.data()
-                docs.push(data)
+               
+                if(data.excurtion !== undefined){
+                    docs.push(data)
+                }
             })
             dispatch(getAllImagesSuccess(docs))
         }, (error) => {

@@ -14,7 +14,7 @@ const ImagesByExcurtion = () => {
     const images = useSelector((state) => state.db.images)
     const excurtions = useSelector((state) => state.db.arrayExcurtions)
 
-    const [ excurtionNav, setExcurtionNav ] = useState('')
+    const [selected, setSelected] = useState(null);
     const [ filteredImages, setFilteredImages ] = useState([])
 
     const dispatch = useDispatch()
@@ -46,40 +46,51 @@ const ImagesByExcurtion = () => {
         })
         setFilteredImages(filtered)
     }
+    const handleButtonClick = (index) => {
+        setSelected(index);
+      };
 console.log(images, 'asd')
     return (
         <div className='imagesByExcurtion'>
             <NavBarAdmin/>
-            <Link to='/homeAdmin'>go back</Link>
-            <div>
-                {excurtions?.map((el) => {
+            <div className='excurtionsNavAdmin'>
+                {excurtions?.map((el, index) => {
                     return(
                         <div key={el?.name}>
-                            <button onClick={(e) => {navOnClick(e, images, el?.name)}}>{el?.name}</button>
+                            <button 
+                            className={selected === index ? 'SelectedNavAdmin' : 'notSelectedNavAdmin'}
+                            onClick={(e) => {navOnClick(e, images, el?.name)
+                            handleButtonClick(index)}}>{el?.name}</button>
                         </div>
                     )
                 })}
             </div>
-            <div>
+            <div className='adminImgsView'>
                 {
                 filteredImages?.length === 0 ?
                 
-                images?.filter(e => e?.excurtion !== undefined)?.map((el) => {
+                (
+                selected === null ?
+                    images?.filter(e => e?.excurtion !== undefined)?.map((el) => {
                     return(
-                        <div key={el?.name}>
-                            <img alt="" src={el?.url}/>
-                            <button onClick={(e) => deleteImage(e, el?.name, el?.excurtion)}>delete</button>
+                        <div className='adminImgView' key={el?.name}>
+                            <img draggable="false" alt="" src={el?.url}/>
+                            <button className='adminDeleteImgView' onClick={(e) => deleteImage(e, el?.name, el?.excurtion)}>delete</button>
                         </div>
                     )
                 }) 
+                :
+                <></>
+                
+                )
 
                 :
 
                 filteredImages?.map((el) => {
                     return(
-                        <div key={el?.name}>
-                            <img alt="" src={el?.url}/>
-                            <button onClick={(e) => deleteImage(e, el?.name, el?.excurtion)}>delete</button>
+                        <div className='adminImgView' key={el?.name}>
+                            <img draggable="false" alt="" src={el?.url}/>
+                            <button className='adminDeleteImgView' onClick={(e) => deleteImage(e, el?.name, el?.excurtion)}>delete</button>
                         </div>
                     )
                 })

@@ -3,3 +3,104 @@
     flex-direction: column;
     align-items: center;
 }
+.excurtionsNavAdmin{
+    display: flex;
+    flex-direction: row;
+    margin-top: 15px;
+}
+.notSelectedNavAdmin{
+    border: 1px solid rgb(252, 245, 245);
+    background-color: rgb(252, 245, 245);
+    color: rgb(49, 49, 49);
+    width: 130px;
+    margin: 5px;
+    border-radius: 30px;
+    height: 30px;
+    cursor: pointer;
+}
+.notSelectedNavAdmin:hover {
+    border: 1px solid #5939fa;
+    background-color: #5939fa;
+    color: rgb(252, 245, 245);
+    
+}
+/* .excurtionsNavAdmin button:focus  {
+    border: 1px solid #5939fa;
+    background-color: #5939fa;
+    color: rgb(252, 245, 245);
+    
+} 
+.excurtionsNavAdmin button:active  {
+    border: 1px solid #5939fa;
+    background-color: #5939fa;
+    color: rgb(252, 245, 245);
+    
+} */
+.SelectedNavAdmin{
+    border: 1px solid #5939fa;
+    background-color: #5939fa;
+    color: rgb(252, 245, 245);
+    width: 130px;
+    margin: 5px;
+    border-radius: 30px;
+    height: 30px;
+    cursor: pointer;
+}
+.adminImgsView {
+    -webkit-column-count: 3;
+    -moz-column-count: 3;
+    column-count: 3;
+    -webkit-column-width: 33%;
+    -moz-column-width: 33%;
+    column-width: 33%;
+    padding: 0 12px;
+  }
+  
+  .adminImgsView .adminImgView{
+    -webkit-transition: all 350ms ease;
+    transition: all 350ms ease;
+    cursor: pointer;
+    margin-bottom: 12px;
+    position: relative; /* Add position relative to the photoCard */
+  }
+  
+  .adminImgsView .adminImgView img {
+    width: 100%;
+  }
+  
+  .adminImgsView .adminImgView .adminDeleteImgView {
+    position: absolute; /* Add position absolute to the downloadButton */
+    bottom: 3%;
+    left: 1%;
+    z-index: 1; /* Add z-index higher than photoCard img */
+  }
+  .adminDeleteImgView{
+    color: #ffffff;
+    border: 1px solid #bd0139;
+    background-color: #bd0139;
+    border-radius: 10px;
+  }
+   
+   @media (max-width: 991px){
+    .adminImgsView{
+      -webkit-column-count: 2;
+      -moz-column-count: 2;
+      column-count: 2;
+    }
+    .excurtionsNavAdmin{
+        max-width: 480px;
+    }
+  }
+  @media (max-width: 480px){
+    .adminImgsView{
+      -webkit-column-count: 1;
+      -moz-column-count: 1;
+      column-count: 1;
+      -webkit-column-width: 100%;
+   -moz-column-width: 100%;
+   column-width: 100%;
+    }
+    .excurtionsNavAdmin{
+        max-width: 360px;
+    }
+  }

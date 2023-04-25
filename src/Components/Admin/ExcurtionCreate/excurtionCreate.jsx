@@ -54,29 +54,43 @@ const ExcurtionCreate = () => {
     return (
         <div className='excurtionCreateContainer'>
             <NavBarAdmin/>
-            <Link to='/homeAdmin'>go back</Link>
-
-            <div>{
-                excurtions?.map((element, index) => {
-                    return(
-                        <div key={element.name}>
-                        <Link to={'/excurtionCreate/' + element?.name}>
-                        <div key={index}>{element?.name}</div>
-                        </Link>
-                        <div onClick={(e) => deleteExcurtion(e, element?.name)}>eliminar</div>
-                        </div>
-                    )
-                })
-                }</div>
             <form onSubmit={handleSubmit}>
                 <input 
                 type='text'
                 name='excurtionName'
                 value={input?.excurtionName}
                 onChange={(e)=>handleInputChange(e)}
+                className='adminSeachbar'
+                placeholder='Crear excursión'
                 />
-                <button>crear</button>
+                <button className='createExcurtionButton'>Crear</button>
             </form>
+            <table className='excurtionCreateTable'>
+                <thead>
+                    <tr style={{backgroundColor: '#b3b3b3'}}>
+                        <th>Excursiones</th>
+                        <th> </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {
+                        excurtions?.map((element, index) => {
+                            return(
+                                <tr style={index % 2 === 1 ? {backgroundColor: '#b3b3b3'} : {backgroundColor: '#cdcdcd'}} key={index}>
+                                    <td>
+                                        <Link style={{textDecoration: 'none', color: 'inherit'}} to={'/excurtionCreate/' + element?.name}>
+                                            <div>{element?.name}</div>
+                                        </Link>
+                                    </td>
+                                    <td>
+                                        <img draggable="false" className='crossExcurtionCreate' alt='' src='/images/ELEMENTOS-03.png' onClick={(e) => deleteExcurtion(e, element?.name)}/>
+                                    </td>                               
+                                </tr>
+                            )
+                        })
+                    }
+                </tbody>
+            </table>
         </div>
     )
 }

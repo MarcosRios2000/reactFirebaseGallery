@@ -2,6 +2,161 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding-bottom: 20px;
 }
+.adminPhotosFileInput{
+    display: none;
+}
+.uploadImgContainer form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #cdcdcd76;
+    width: 600px;
+    min-height: 250px;
+    border-radius: 20px;
+    margin-top: 40px;
+    padding-bottom: 20px;
+}
+
+.selectUpload {
+    background-color: #ffffff;
+    border: 2px solid #5939fa;
+    border-radius: 20px;
+    color: #5939fa;
+    font-size: 16px;
+    padding: 8px;
+    width: 250px;
+    margin-top: 20px;
+}
+
+.selectUpload:focus {
+    outline: none;
+    border-color: #777878;
+}
+
+.selectUpload option {
+    color: #777878;
+}
+.uploadImagesButton{
+    border: 2px solid #5939fa;
+    color: #ffffff; 
+    background-color: #5939fa;
+    width: 200px;
+    border-radius: 30px;
+    height: 35px;
+    line-height: 35px;
+    text-align: center;
+    margin-top: 10px;
+}
+.uploadImagesButton:hover{
+    border: 2px solid #4a26f9;
+    background-color: #4a26f9;
+}
+
+  .uploadImages {
+    -webkit-column-count: 3;
+    -moz-column-count: 3;
+    column-count: 3;
+    -webkit-column-width: 33%;
+    -moz-column-width: 33%;
+    column-width: 33%;
+    padding: 0 12px;
+    margin-top: 20px;
+    margin-bottom: 15px;
+  }
+  
+  .uploadImages .uploadIndividualImg {
+    -webkit-transition: all 350ms ease;
+    transition: all 350ms ease;
+    
+    margin-bottom: 12px;
+    position: relative; /* Add position relative to the photoCard */
+  }
+  
+  .uploadImages .uploadIndividualImg img {
+    width: 100%;
+  }
+  .uploadImages .uploadIndividualImg .deleteImgAdmin {
+    position: absolute; /* Add position absolute to the downloadButton */
+    bottom: 7px;
+    left: 1%;
+    z-index: 1; /* Add z-index higher than photoCard img */
+    border-radius: 10px;
+    cursor: pointer;
+  }
+  .deleteImgAdmin{
+    color: #ffffff;
+    border: 1px solid #bd0139;
+    background-color: #bd0139;
+  }
+  @media (max-width: 991px){
+    .uploadImages{
+      -webkit-column-count: 2;
+      -moz-column-count: 2;
+      column-count: 2;
+    }
+  }
+  @media (max-width: 480px){
+    .uploadImages{
+      -webkit-column-count: 1;
+      -moz-column-count: 1;
+      column-count: 1;
+      -webkit-column-width: 100%;
+   -moz-column-width: 100%;
+   column-width: 100%;
+    }
+  }
+  @media (max-width: 610px){
+    .uploadImgContainer form{
+        max-width: 350px;
+    }
+  }
+.uploadError{
+    font-size: 10px;
+    color: #bd0139;
+}
+.uploadButtonContainer{
+    margin-top: auto;
+}
+.uploadButton{
+    border: 1px solid #5939fa;
+    background-color: #5939fa;
+    color: rgb(252, 245, 245);
+    width: 130px;
+    border-radius: 30px;
+    height: 30px;
+    cursor: pointer;
+    
+}
+.uploadButtonhover{
+    border: 1px solid #4a26f9;
+    background-color: #4a26f9;
+}
+.disabledAdminUploadButton{
+    border: 1px solid #5939fa;
+    background-color: #5939fa;
+    color: rgb(252, 245, 245);
+    width: 130px;
+    border-radius: 30px;
+    height: 30px;
+    opacity: 0.7;
+}
+
+
+
+
+progress[value]::-webkit-progress-value {
+    background-color: blue;
+  }
+  
+  progress[value]::-webkit-progress-bar {
+    background-color: gray;
+  }
+  
+  progress[value]:not(:indeterminate)::after {
+    color: white;
+    content: "Done";
+  }
 
 

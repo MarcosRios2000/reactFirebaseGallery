@@ -3,3 +3,39 @@
     flex-direction: column;
     align-items: center;
 }
+.excurtionCreateTable td:last-child{
+    float: right;
+}
+.excurtionCreateContainer form{
+    
+}
+.createExcurtionButton{
+    height: 32px;
+    width: 100px;
+    border: 1px solid #5939fa;
+    background-color:#5939fa;
+    color: #fffef4;
+    border-radius: 50px;
+    margin-left: 5px;
+    box-shadow: -1px 3px 5px 1px #b3b3b3;
+}
+.createExcurtionButton:hover{
+    border: 1px solid #4723f8;
+    background-color:#4723f8;
+}
+.crossExcurtionCreate{
+    width: 30px;
+}
+@media screen and (max-width: 600px) {
+    .crossExcurtionCreate{
+        width: 20px;
+    }
+    .adminSeachbar{
+        width: 170px;
+        min-height: 20px;
+    }
+    .createExcurtionButton{
+        height: 23px;
+        width: 70px;
+    }
+}

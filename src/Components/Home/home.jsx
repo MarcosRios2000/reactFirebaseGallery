@@ -115,8 +115,8 @@ const Home = () => {
     return (
         <div className='homeContainer'>
           <div className={model ? "model open" : "model"} >
-            <img src={tempImgSrc} />
-            <img onClick={e => closeModel(e)} className='closeImgHome' src='/images/close.png'/>
+            <img draggable="false" src={tempImgSrc} />
+            <img draggable="false" onClick={e => closeModel(e)} className='closeImgHome' src='/images/close.png'/>
           </div>
             <div className='homeTitle'>Bienvenido/a {user?.name} a tu QBook.</div>
             <div className='homeBody'>Descargá las fotos que mas te gusten o utilizá el botón DESCARGAR TODO.</div>
@@ -138,10 +138,11 @@ const Home = () => {
                 return (
                   <div className='photoCard' key={el.url}>
                     <img 
+                    draggable="false"
                     onClick={()=> getImg(el?.url)}
                     style={{width:"100%"}} alt="" src={el?.url}/>
                     <a href={el.url} target="_blank" rel="noreferrer">
-                    <img style={{width:"20px"}} className='downloadButton' alt='' src='/images/IconDescarga.png'/>
+                    <img draggable="false" style={{width:"20px"}} className='downloadButton' alt='' src='/images/IconDescarga.png'/>
                     </a>
                     
                   </div>

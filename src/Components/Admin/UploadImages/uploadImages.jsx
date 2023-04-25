@@ -6,14 +6,15 @@ import { db, storage, firebase } from "../../../Firebase/firebaseConfig";
 import * as firestoreKeys from '../../../Firebase/firestoreKeys'
 import NavBarAdmin from "../NavBarAdmin/navBarAdmin";
 
+
 const UploadImages = () => {
     const excurtionsArray = useSelector((state) => state?.db?.arrayExcurtions)
     const [ fileList, setFileList ] = useState([])
     const [uploadProgress, setUploadProgress] = useState(0);
     const [ input, setInput ] = useState('')
+    
 
     const dispatch = useDispatch();
-
 
     function handleChange(e) {
         e.preventDefault()
@@ -28,9 +29,9 @@ const UploadImages = () => {
 
     const renderImages = () => {
         return fileList.map((file, index) => (
-          <div key={file.name}>
-            <img src={URL.createObjectURL(file)} alt={file.name} />
-            <button onClick={() => handleFileDelete(index)}>Delete</button>
+          <div className='uploadIndividualImg' key={file.name}>
+            <img draggable="false" src={URL.createObjectURL(file)} alt={file.name} />
+            <button className='deleteImgAdmin' onClick={() => handleFileDelete(index)}>Borrar</button>
           </div>
         ));
       };
@@ -63,6 +64,7 @@ const UploadImages = () => {
         },
         () => {
           imageRef.getDownloadURL().then((url) => {
+            const objectUrl = URL.createObjectURL(el);
             db.collection(firestoreKeys?.images)
               .doc(`${input}-${el?.name}`)
               .set({
@@ -74,7 +76,7 @@ const UploadImages = () => {
                 setInput('')
                 document.getElementById('file').value = '';
                 setUploadProgress(0);
-                URL.revokeObjectURL()
+                URL.revokeObjectURL(objectUrl)
               });
           });
         }
@@ -82,21 +84,12 @@ const UploadImages = () => {
     });
   };
 
-
     return(
         <div className='uploadImgContainer'>
           <NavBarAdmin/>
-            <div>upload</div>
             <form onSubmit={handleSubmit}>
-                <input 
-                    multiple name="file"
-                    id="file"
-                    type="file"
-                    action="upload.php"
-                    onChange={e => handleChange(e)}
-                />
-                <select value={input} onChange={(e)=>handleSelectOnChange(e)}>
-                    <option hidden>Excurtion</option>
+              <select className='selectUpload' name='select' value={input} onChange={(e)=>handleSelectOnChange(e)}>
+                <option hidden>Seleccionar excursión</option>
                     {excurtionsArray?.map((el) => {
                         return (
                             <option key={el?.name} value={el?.name}>
@@ -104,21 +97,38 @@ const UploadImages = () => {
                             </option>
                         )
                     })}
-                </select>
-                {uploadProgress > 0 && (
-        <progress value={uploadProgress} max="100">
-          {uploadProgress}%
-        </progress>
-      )}
-                <div>
+              </select>
+              <div className='uploadError'>{input === '' ? 'No hay excursión seleccionada' : ''}</div>
+              <input 
+                  className='adminPhotosFileInput'
+                    multiple name="file"
+                    id="file"
+                    type="file"
+                    action="upload.php"
+                    onChange= {(e)=>handleChange(e)}
+              />
+              <label
+                htmlFor="file"
+                className='uploadImagesButton'
+              >Seleccionar imagen</label>
+              <div className='uploadError'>{fileList.length === 0 ? 'No hay fotos seleccionadas' : ''}</div>
+              <div className='uploadImages' >
                    {renderImages()}
                 </div>
-                <div>
-                    <button>Upload</button>
-                </div>    
+              <div className='uploadButtonContainer'>
+                <button type={(input === '' || fileList.length === 0) ? 'button' : 'submit'} className={(input === '' || fileList.length === 0) ? 'disabledAdminUploadButton' : 'uploadButton'}>Upload</button>
+              </div>  
+              <div>
+                {uploadProgress > 0 && (
+                  <progress value={uploadProgress} max="100">
+                    {uploadProgress}%
+                  </progress>
+                )}  
+              </div>  
             </form>
-          
-            <Link to='/homeAdmin'>Go back</Link>
+                {/* <div className='uploadImages' >
+                   {renderImages()}
+                </div> */}
         </div>
     )
 
